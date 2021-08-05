@@ -33,6 +33,6 @@ jobs:
           cd ~/scripts
           node jddj_fruit_collectWater.js
         env:
-          JDDJ_COOKIE: ${{ secrets.JDDJ_COOKIE }}
+          JD_COOKIE: ${{ secrets.JD_COOKIE }}
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
