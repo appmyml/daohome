@@ -1,0 +1,38 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node new
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: jddj_fruit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '10 0,3,7,16 * * *'
+  watch:
+    types: [started]
+  repository_dispatch:
+    types: jddj_fruit
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        run: |
+          git clone -b  main ${{ secrets.C_URL }} ~/scripts
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: npm install
+        run: |
+          cd ~/scripts
+          npm install
+      - name: '运行 【京东到家果园任务】'
+        run: |
+          cd ~/scripts
+          node jddj_fruit.js
+        env:
+          JDDJ_COOKIE: ${{ secrets.JDDJ_COOKIE }}
+          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
