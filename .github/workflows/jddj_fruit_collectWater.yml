@@ -28,11 +28,13 @@ jobs:
         run: |
           cd ~/scripts
           npm install
-      - name: '运行 【京东到家果园水车自动收水滴】'
+      - name: 'RUN 【🌄家果收水】'
         run: |
           cd ~/scripts
           node jddj_fruit_collectWater.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
+          JDDJ_COOKIE: ${{ secrets.JDDJ_COOKIE }}
+          JDDJ_CKPATH: ${{ secrets.JDDJ_CKPATH }}
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}

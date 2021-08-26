@@ -28,11 +28,13 @@ jobs:
         run: |
           cd ~/scripts
           npm install
-      - name: '运行 【京东到家鲜豆庄园】'
+      - name: 'RUN 【📣家鲜庄】'
         run: |
           cd ~/scripts
           node jddj_plantBeans.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
+          JDDJ_COOKIE: ${{ secrets.JDDJ_COOKIE }}
+          JDDJ_CKPATH: ${{ secrets.JDDJ_CKPATH }}
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
