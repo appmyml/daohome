@@ -112,6 +112,7 @@ async function taskList() {
             let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Flist&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10003%22%2C%22plateCode%22%3A1%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + '&deviceToken=' + deviceid + '&deviceId=' + deviceid, '');
 
             $.http.get(option).then(response => {
+                console.log(response)
                 var data = JSON.parse(response.body);
                 //console.log(response.body);
                 resolve(data);
